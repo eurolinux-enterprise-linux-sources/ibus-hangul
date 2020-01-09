@@ -1,0 +1,45 @@
+Index: ibus-hangul-1.3.0.20100329/src/engine.c
+===================================================================
+--- ibus-hangul-1.3.0.20100329.orig/src/engine.c
++++ ibus-hangul-1.3.0.20100329/src/engine.c
+@@ -143,6 +143,7 @@ static IBusConfig *config = NULL;
+ static GString    *hangul_keyboard = NULL;
+ static HanjaKeyList hanja_keys;
+ static int lookup_table_orientation = 0;
++static IBusText *text_empty = NULL;
+ 
+ GType
+ ibus_hangul_engine_get_type (void)
+@@ -206,6 +207,9 @@ ibus_hangul_init (IBusBus *bus)
+ 	hanja_key_list_append(&hanja_keys, IBUS_Hangul_Hanja, 0);
+ 	hanja_key_list_append(&hanja_keys, IBUS_F9, 0);
+     }
++
++    text_empty = ibus_text_new_from_string ("");
++    g_object_ref_sink (text_empty);
+ }
+ 
+ void
+@@ -224,6 +228,8 @@ ibus_hangul_exit (void)
+ 
+     g_string_free (hangul_keyboard, TRUE);
+     hangul_keyboard = NULL;
++
++    g_object_unref (text_empty);
+ }
+ 
+ static void
+@@ -821,6 +827,13 @@ ibus_hangul_engine_focus_in (IBusEngine
+ 
+     ibus_engine_register_properties (engine, hangul->prop_list);
+ 
++    /* Workaround for the XIM client: if the previous preedit was
++       committed as a result of IBUS_ENGINE_PREEDIT_COMMIT, the
++       synchronous XIM_COMMIT may remain incomplete, and subsequent
++       XIM_FORWARD_EVENT request may be dropped.  Finish the
++       XIM_COMMIT request by sending an empty text.  */
++    ibus_engine_commit_text (engine, text_empty);
++
+     ibus_hangul_engine_update_preedit_text (hangul);
+ 
+     if (hangul->hanja_list != NULL) {

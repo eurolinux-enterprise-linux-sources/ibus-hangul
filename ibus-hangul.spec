@@ -3,13 +3,14 @@
 
 Name:       ibus-hangul
 Version:    1.3.0.20100329
-Release:    4%{?dist}
+Release:    6%{?dist}
 Summary:    The Hangul engine for IBus input platform
 License:    GPLv2+
 Group:      System Environment/Libraries
 URL:        http://code.google.com/p/ibus/
 Source0:    http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:	    ibus-hangul-HEAD.patch
+Patch1:	    ibus-hangul-x11-preedit-commit.patch
 
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -30,6 +31,7 @@ libhangul.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure --disable-static
@@ -54,6 +56,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/ibus/component/*
 
 %changelog
+* Thu Jul  4 2013 Daiki Ueno <dueno@redhat.com> - 1.3.0.20100329-6
+- Rebuild against 6.5-fast buildroot
+
+* Wed Jun 12 2013 Daiki Ueno <dueno@redhat.com> - 1.3.0.20100329-5
+- Add workaround for the race of XIM client and IBUS_ENGINE_PREEDIT_COMMIT
+- Fix bug 965554 - ibus-hangul may not handle key event after focus change
+
 * Tue Jan 11 2011 Daiki Ueno <dueno@redhat.com> - 1.3.0.20100329-4
 - Fix require_ibus_version change in the previous commit.
 
