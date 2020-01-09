@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Huang Peng <shawn.p.huang@gmail.com>
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-29 00:05+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../setup/keycapturedialog.py:15
+msgid ""
+"Press any key which you want to use as hanja key. The key you pressed is "
+"displayed below.\n"
+"If you want to use it, click \"Ok\" or click \"Cancel\""
+msgstr ""
+
+#: ../setup/main.py:50
+msgid "Dubeolsik"
+msgstr ""
+
+#: ../setup/main.py:51
+msgid "Sebeolsik Final"
+msgstr ""
+
+#: ../setup/main.py:52
+msgid "Sebeolsik 390"
+msgstr ""
+
+#: ../setup/main.py:53
+msgid "Sebeolsik No-shift"
+msgstr ""
+
+#: ../setup/main.py:54
+msgid "Sebeolsik 2 set"
+msgstr ""
+
+#: ../setup/main.py:55
+msgid "Romaja"
+msgstr ""
+
+#: ../setup/main.py:141
+msgid "Select Hanja key"
+msgstr ""
+
+#: ../setup/setup.ui.h:1
+msgid "<b>Hanja key</b>"
+msgstr ""
+
+#: ../setup/setup.ui.h:2
+msgid "<b>Keyboard Layout</b>"
+msgstr ""
+
+#: ../setup/setup.ui.h:3
+msgid "Advanced"
+msgstr ""
+
+#: ../setup/setup.ui.h:4
+msgid "Hangul"
+msgstr ""
+
+#: ../setup/setup.ui.h:5
+msgid "Hanja"
+msgstr ""
+
+#: ../setup/setup.ui.h:6
+msgid "IBusHangul Setup"
+msgstr ""
+
+#: ../setup/setup.ui.h:7
+msgid "_Hangul keyboard:"
+msgstr ""
+
+#: ../src/engine.c:255
+msgid "Hanja lock"
+msgstr ""
+
+#: ../src/engine.c:256
+msgid "Enable/Disable Hanja mode"
+msgstr ""
+
+#: ../src/engine.c:267
+msgid "Setup"
+msgstr ""
+
+#: ../src/engine.c:268
+msgid "Configure hangul engine"
+msgstr ""
+
+#: ../src/main.c:52
+msgid "Korean input method"
+msgstr ""
+
+#: ../src/main.c:61 ../src/main.c:62
+msgid "Korean Input Method"
+msgstr ""
