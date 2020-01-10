@@ -3,7 +3,7 @@
 
 Name:       ibus-hangul
 Version:    1.4.2
-Release:    10%{?dist}
+Release:    11%{?dist}
 Summary:    The Hangul engine for IBus input platform
 License:    GPLv2+
 Group:      System Environment/Libraries
@@ -15,6 +15,7 @@ Patch0:     ibus-hangul-hangul-toggle.patch
 # not upstreamed patches
 Patch1:     ibus-hangul-dconf-prefix.patch
 Patch2:     ibus-hangul-setup-abspath.patch
+Patch3:     ibus-hangul-fixes-reset.patch
 
 BuildRequires:  gettext-devel, automake, libtool
 BuildRequires:  intltool
@@ -38,6 +39,7 @@ libhangul.
 %patch0 -p1 -b .hangul-toggle
 %patch1 -p1 -b .dconf-prefix
 %patch2 -p1 -b .setup-abspath
+%patch3 -p1 -b .reset
 
 autopoint -f
 AUTOPOINT='intltoolize --automake --copy' autoreconf -fi
@@ -80,6 +82,10 @@ fi
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Apr 24 2019 Peng Wu <pwu@redhat.com> - 1.4.2-11
+- Add ibus-hangul-fixes-reset.patch
+- Resolves: rhbz#1612432
+
 * Thu Aug  7 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-10
 - Add ibus-hangul-hangul-toggle.patch
 - Fix bug 1071351 - Cannot switch English input mode and Hangul

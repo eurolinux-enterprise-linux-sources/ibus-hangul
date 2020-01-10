@@ -1,0 +1,31 @@
+commit b3bbd17e5c557463991a6fb193fcfe299817e542
+Author: Peng Wu <alexepico@gmail.com>
+Date:   Thu Apr 18 15:05:47 2019 +0800
+
+    Do not commit text when reset signal is received
+    
+    ibus-hangul uses ibus_engine_update_preedit_text_with_mode() to
+    commit the preedit text by ibus-daemon and now focus-out and
+    mouse click are handled by ibus-daemon and ibus clients.
+    
+    BUG=https://github.com/ibus/ibus/issues/1980
+
+Index: ibus-hangul-1.4.2/src/engine.c
+===================================================================
+--- ibus-hangul-1.4.2.orig/src/engine.c
++++ ibus-hangul-1.4.2/src/engine.c
+@@ -1197,7 +1197,14 @@ ibus_hangul_engine_reset (IBusEngine *en
+ {
+     IBusHangulEngine *hangul = (IBusHangulEngine *) engine;
+ 
++    // ibus-hangul uses
++    // ibus_engine_update_preedit_text_with_mode() function which makes
++    // the preedit string committed automatically when the reset is received
++    // So we don't need to commit the preedit here.
++    hangul_ic_reset (hangul->context);
++    ustring_clear (hangul->preedit);
+     ibus_hangul_engine_flush (hangul);
++
+     parent_class->reset (engine);
+ }
+ 
