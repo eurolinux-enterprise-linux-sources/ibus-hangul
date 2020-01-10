@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Huang Peng <shawn.p.huang@gmail.com>
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-15 23:46+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../setup/keycapturedialog.py:15
+msgid ""
+"Press any key which you want to use as hanja key. The key you pressed is "
+"displayed below.\n"
+"If you want to use it, click \"Ok\" or click \"Cancel\""
+msgstr ""
+
+#: ../setup/main.py:153
+msgid "Select Hanja key"
+msgstr ""
+
+#: ../setup/main.py:200
+msgid ""
+"IBus daemon is not running.\n"
+"Hangul engine settings cannot be saved."
+msgstr ""
+
+#: ../setup/ibus-setup-hangul.desktop.in.h:1
+msgid "IBus Hangul Preferences"
+msgstr ""
+
+#: ../setup/ibus-setup-hangul.desktop.in.h:2
+msgid "Set IBus Hangul Preferences"
+msgstr ""
+
+#: ../setup/setup.ui.h:1
+msgid "<b>Etc</b>"
+msgstr ""
+
+#: ../setup/setup.ui.h:2
+msgid "<b>Hanja key</b>"
+msgstr ""
+
+#: ../setup/setup.ui.h:3
+msgid "<b>Keyboard Layout</b>"
+msgstr ""
+
+#: ../setup/setup.ui.h:4
+msgid "Advanced"
+msgstr ""
+
+#: ../setup/setup.ui.h:5
+msgid "Automatic _reordering"
+msgstr ""
+
+#: ../setup/setup.ui.h:6
+msgid "Commit in _word unit"
+msgstr ""
+
+#: ../setup/setup.ui.h:7
+msgid "Hangul"
+msgstr ""
+
+#: ../setup/setup.ui.h:8
+msgid "Hanja"
+msgstr ""
+
+#: ../setup/setup.ui.h:9
+msgid "IBusHangul Setup"
+msgstr ""
+
+#: ../setup/setup.ui.h:10
+msgid "_Hangul keyboard:"
+msgstr ""
+
+#: ../src/engine.c:350
+msgid "Hanja lock"
+msgstr ""
+
+#: ../src/engine.c:351
+msgid "Enable/Disable Hanja mode"
+msgstr ""
+
+#: ../src/engine.c:362
+msgid "Setup"
+msgstr ""
+
+#: ../src/engine.c:363
+msgid "Configure hangul engine"
+msgstr ""
+
+#: ../src/main.c:71
+msgid "Korean input method"
+msgstr ""
+
+#: ../src/main.c:80 ../src/main.c:81
+msgid "Korean Input Method"
+msgstr ""

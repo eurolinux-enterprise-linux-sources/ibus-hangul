@@ -1,0 +1,26 @@
+From 3e7c5811d38d64d5e13d8e6ce54db103968561bd Mon Sep 17 00:00:00 2001
+From: Daiki Ueno <ueno@unixuser.org>
+Date: Tue, 2 Apr 2013 13:52:29 +0900
+Subject: [PATCH] Work around for the case ibus-dconf sends lowercase config
+ section
+
+---
+ src/engine.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/engine.c b/src/engine.c
+index 602f073..456e353 100644
+--- a/src/engine.c
++++ b/src/engine.c
+@@ -1269,7 +1269,7 @@ ibus_config_value_changed (IBusConfig   *config,
+ {
+     IBusHangulEngine *hangul = (IBusHangulEngine *) user_data;
+ 
+-    if (strcmp(section, "engine/Hangul") == 0) {
++    if (g_ascii_strcasecmp(section, "engine/Hangul") == 0) {
+         if (strcmp(name, "HangulKeyboard") == 0) {
+             const gchar *str = g_variant_get_string(value, NULL);
+             g_string_assign (hangul_keyboard, str);
+-- 
+1.8.1.4
+
