@@ -3,7 +3,7 @@
 
 Name:       ibus-hangul
 Version:    1.4.2
-Release:    9%{?dist}
+Release:    5%{?dist}
 Summary:    The Hangul engine for IBus input platform
 License:    GPLv2+
 Group:      System Environment/Libraries
@@ -13,7 +13,6 @@ Source0:    http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 #Patch0:     ibus-hangul-HEAD.patch
 # not upstreamed patches
 Patch1:     ibus-hangul-dconf-prefix.patch
-Patch2:     ibus-hangul-setup-abspath.patch
 
 BuildRequires:  gettext-devel, automake, libtool
 BuildRequires:  intltool
@@ -35,7 +34,6 @@ libhangul.
 %prep
 %setup -q
 %patch1 -p1 -b .dconf-prefix
-%patch2 -p1 -b .setup-abspath
 
 autopoint -f
 AUTOPOINT='intltoolize --automake --copy' autoreconf -fi
@@ -78,20 +76,6 @@ fi
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.4.2-9
-- Mass rebuild 2014-01-24
-
-* Wed Jan 22 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-8
-- Bump version
-
-* Wed Jan 22 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-7
-- Invoke ibus-setup-hangul with the absolute path.
-- Fix bug 1012732 - Click ibus hangul setup on gnome-shell top bar's
-  ibus -> No Response
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.4.2-6
-- Mass rebuild 2013-12-27
-
 * Wed Jun 19 2013 Daiki Ueno <dueno@redhat.com> - 1.4.2-5
 - Remove ibus-setup-hangul symlink in %%{_bindir}.
 - Fix bogus changelog date.
