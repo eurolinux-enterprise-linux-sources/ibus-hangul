@@ -3,7 +3,7 @@
 
 Name:       ibus-hangul
 Version:    1.4.2
-Release:    5%{?dist}
+Release:    10%{?dist}
 Summary:    The Hangul engine for IBus input platform
 License:    GPLv2+
 Group:      System Environment/Libraries
@@ -11,8 +11,10 @@ URL:        http://code.google.com/p/ibus/
 Source0:    http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 # upstreamed patches
 #Patch0:     ibus-hangul-HEAD.patch
+Patch0:     ibus-hangul-hangul-toggle.patch
 # not upstreamed patches
 Patch1:     ibus-hangul-dconf-prefix.patch
+Patch2:     ibus-hangul-setup-abspath.patch
 
 BuildRequires:  gettext-devel, automake, libtool
 BuildRequires:  intltool
@@ -33,7 +35,9 @@ libhangul.
 
 %prep
 %setup -q
+%patch0 -p1 -b .hangul-toggle
 %patch1 -p1 -b .dconf-prefix
+%patch2 -p1 -b .setup-abspath
 
 autopoint -f
 AUTOPOINT='intltoolize --automake --copy' autoreconf -fi
@@ -76,6 +80,25 @@ fi
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Aug  7 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-10
+- Add ibus-hangul-hangul-toggle.patch
+- Fix bug 1071351 - Cannot switch English input mode and Hangul
+  (Korean) input mode by Hangul key
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.4.2-9
+- Mass rebuild 2014-01-24
+
+* Wed Jan 22 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-8
+- Bump version
+
+* Wed Jan 22 2014 Daiki Ueno <dueno@redhat.com> - 1.4.2-7
+- Invoke ibus-setup-hangul with the absolute path.
+- Fix bug 1012732 - Click ibus hangul setup on gnome-shell top bar's
+  ibus -> No Response
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.4.2-6
+- Mass rebuild 2013-12-27
+
 * Wed Jun 19 2013 Daiki Ueno <dueno@redhat.com> - 1.4.2-5
 - Remove ibus-setup-hangul symlink in %%{_bindir}.
 - Fix bogus changelog date.
